@@ -1,0 +1,29 @@
+{% extends "works_base.html" %}
+
+{% block content_works %}
+
+<div class="ds-work-content-sec">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+           <h2>{{town}}</h2> <img src="https://openweathermap.org/img/wn/{{icon}}@2x.png">
+
+
+            <ul>
+                <li> Температура в городе {{town}} сейчас: {{temp}} &deg C</li>
+                {% if vlag > 60 %}
+                <li> Высокий уровень влажности: {{vlag}} %</li>
+                {% elif vlag < 40 %}
+                <li> Низкий уровень влажности: {{vlag}} %</li>
+                {% else %}
+                <li> Оптимальная влажность: {{vlag}} %</li>
+
+            {% endif %}
+            <li> Описание: {{text}} </li>
+            </ul>
+<figure><img src="../static/images/work1.png"
+             alt="Здесь должна была быть картинка, но не нашлась"></figure>
+
+        </div>
+    </div>
+</div>
+{% endblock content_works %}

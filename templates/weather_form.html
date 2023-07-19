@@ -1,0 +1,34 @@
+{% extends "works_base.html" %}
+{% block content_works %}
+
+<figure><img src="../static/images/work-details-image-2.png"
+             alt="Здесь должна была быть картинка, но не нашлась"></figure>
+<div class="ds-work-content-sec">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+            <h2>Получим текущую температуру с описанием состояния погоды.</h2>
+            <p>Сформируем и отправим запрос, разберем ответный пакет в формате JSON.</p>
+            <form method="post" class="login_form">
+                <input type="text" name="town" style="height: 60px;" class="form-control " placeholder="Введите город"><br>
+                <button type="submit" class="ds-button">Показать погоду</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+   <figure><img src="../static/images/work-details-image-1.png"
+                        alt ="Здесь должна была быть картинка, но не нашлась">
+                    </figure>
+
+<div class="ds-work-content-sec">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+                                <p>OpenWeatherMap — онлайн сервис, который предоставляет платный
+                                    (есть функционально ограниченная бесплатная версия) API для доступа к данным
+                                    о текущей погоде, прогнозам и историческим данным.
+                                    В качестве источника данных используются официальные метеорологические службы,
+                                    данные из метеостанций аэропортов, и данные с частных метеостанций.</p>
+                            </div>
+                        </div>
+                    </div>
+{% endblock content_works %}

@@ -1,0 +1,30 @@
+<!--Содержит оформление выполненных работ -->
+{% extends "base.html" %}
+{% block main %}
+<main class="ds-main-section">
+    <div class="container">
+        <div class="ds-work-details-section">
+            <div class="text-center">
+                <br>
+                <a href="/index" class="ds-button ds-arrow-button"><i class="ri-arrow-left-s-line"></i>Назад</a>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-xxl-10">
+                    <header class="ds-work-det-hed">
+                        <h1 class="ds-work-det-title">{{ title }}</h1>
+                        <span class="ds-work-det-dep">Дата разработки - {{year_app}}</span>
+                    </header>
+
+
+                            {% block content_works %}
+                            {% endblock content_works  %}
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock main %}
+

@@ -1,3 +1,4 @@
+<!-- Содержит шапку и подвал страницы -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -46,31 +47,8 @@
 </header>
 <!-- header -->
 
-<main class="ds-main-section">
-    <div class="container">
-        <div class="ds-work-details-section">
-            <div class="text-center">
-                <a href="/index" class="ds-button ds-arrow-button"><i class="ri-arrow-left-s-line"></i> BAck</a>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 col-xxl-10">
-                    <header class="ds-work-det-hed">
-                        <h1 class="ds-work-det-title">{{ title }}</h1>
-                        <span class="ds-work-det-dep">Дата разработки - {{year_app}}</span>
-                    </header>
-
-
-                            {% block content %}
-                            {% endblock %}
-
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-
+{% block main%}
+{% endblock main %}
 
 <!--  footer -->
 <footer class="ds-footer text-center">
@@ -79,7 +57,7 @@
             <span>Будем на связи</span>
             <h4>Готовы поговорить?</h4>
             <p>Не стесняемся</p>
-            <a href="mailto:test@test.com&body=Привет?subject=Вопрос с сайта" class="ds-button" title="Открываем почту">Написать письмо</a>
+            <a href="mailto:test@test.com?subject=Вопрос с сайта&body=Привет" class="ds-button" title="Открываем почту">Написать письмо</a>
         </section>
         <span class="ds-copyright">© 2023 All rights reserved.</span>
     </div>
