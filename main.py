@@ -22,7 +22,7 @@ def well():  # колодец
 
 @app.route('/works')
 def works():
-    return render_template('works.html', title='Прогноз погоды', year_app='июль 2023')
+    return render_template('works.html', title='Работа', year_app='июль 2023')
 
 
 @app.route('/weather_form', methods=['GET', 'POST'])
@@ -37,12 +37,16 @@ def weather_form():
         result = requests.get(url, params=params)
         weather = result.json()  # превратить ответ в формат json
         code = weather['cod']  # если города нет, поймать ошибку
-        icon = weather['weather'][0]['icon']
-        temp = int(weather['main']['temp'])
-        vlag = weather['main']['humidity']
-        text = weather['weather'][0]['description']
-        return render_template('weather.html', title='Погода', year_app='июль 2023',
-                               town=town, data=weather, icon=icon, temp=temp, vlag=vlag, text=text)
+        if code != '401':
+            if code != '404':
+                icon = weather['weather'][0]['icon']
+                temp = int(weather['main']['temp'])
+                vlag = weather['main']['humidity']
+                text = weather['weather'][0]['description']
+                return render_template('weather.html', title=f'Погода в городе {town}', year_app='июль 2023',
+                                       town=town, icon=icon, temp=temp, vlag=vlag, text=text)
 
+            else:
+                return redirect('/error404')
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)
