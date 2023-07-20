@@ -86,36 +86,21 @@
     <div class="container">
         <h2 class="ds-heading">Опыт работы</h2>
         <div class="row ds-experience-list">
+            {% for item in experience_list %}
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                 <section>
-                    <span class="ds-year">2023 - Сейчас</span>
-                    <h3 class="ds-officename">Сам себе хозяин</h3>
-                    <span class="ds-department">Backend developer</span>
+                    <span class="ds-year">{{ item['year'] }}</span>
+                    <h3 class="ds-officename">{{ item['officename'] }}</h3>
+                    <span class="ds-department">{{ item['department'] }}</span>
                     <ul>
-                        <li>Изучение документации и стандартов написания кода</li>
-                        <li>Работа с Api внешних сервисов</li>
-                        <li>Git коммиты</li>
-                        <li>Jinja шаблонизатор</li>
-                        <li>Ходила в СПА и пила смузи</li>
+                        {% for i in item['to_do'] %}
+                        <li>{{ i }}</li>
+                        {% endfor%}
                     </ul>
                 </section>
             </div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                <section>
-                    <span class="ds-year">2010 - 2023</span>
-                    <h3 class="ds-officename">Международная европейская компания</h3>
-                    <span class="ds-department">Team lead</span>
-                    <ul>
-                        <li>Постановка целей, инициирование действий для их достижения и отслеживание результатов</li>
-                        <li>Анализ отчетов, KPI</li>
-                        <li>Реализация проектов компании</li>
-                        <li>Составление графика и планирование</li>
-                        <li>Развитие профессиональных навыков команды (штат сотрудников от 100 и больше)</li>
-                        <li>Обеспечение кадрового резерва внутри команды, рекрутмент</li>
-                        <li>Проведение обратной связи для команды</li>
-                    </ul>
-                </section>
-            </div>
+            {% endfor%}
+
         </div>
     </div>
 </div>
@@ -148,8 +133,10 @@
                     <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 col-xxl-7">
                         <section>
                             <h3 class="ds-work-tilte">Работа с изображением</h3>
-                            <p>Бла-бла-бла </p>
-                            <a href="/works" class="ds-button">Подробнее</a>
+                            <p>Хорошая картинка стоит тысячи слов. Этот инструмент может гарантировать,
+                                что ваши фотографии будут иметь наилучшие цвета, контрастность и яркость.
+                            </p>
+                            <a href="/error404" class="ds-button">Подробнее</a>
                         </section>
                     </div>
                     <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
@@ -162,8 +149,8 @@
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 col-xxl-7">
                         <section>
-                            <h3 class="ds-work-tilte">app</h3>
-                            <p>Бла-бла-бла. </p>
+                            <h3 class="ds-work-tilte">Бла-бла-бла</h3>
+                            <p>Проект в процессе! Следите за обновлениями. </p>
                             <a href="/works" class="ds-button">Подробнее</a>
                         </section>
                     </div>
