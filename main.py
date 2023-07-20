@@ -17,20 +17,24 @@ def http_404_error(error):
 
 @app.route('/error404')
 def well():  # колодец
-    return render_template('well.html', title='Вот это поворот 404', year_app='Никогда')
+    return render_template('well.html', title='Вот это поворот 404', year_app='Никогда', b='/index')
 
 
 @app.route('/works')
 def works():
-    return render_template('works.html', title='Работа', year_app='июль 2023')
+    return render_template('works.html', title='Работа', year_app='июль 2023', b='/index')
 
 
 @app.route('/weather_form', methods=['GET', 'POST'])
 def weather_form():
+    message = ''
     if request.method == 'GET':
-            return render_template('weather_form.html', title="Погода", year_app='июль 2023')
+            return render_template('weather_form.html', title="Погода", year_app='июль 2023', b='/index')
     elif request.method == 'POST':
         town = request.form.get('town')
+        if town == '':
+            town = 'Санкт-Петербург'
+            message = "Вы не ввели город!"
         key = '6d1cbcd7f1f15faea7b3accc84da2c51'
         url = 'http://api.openweathermap.org/data/2.5/weather'
         params = {'APPID': key, 'q': town, 'units': 'metric'}
@@ -44,9 +48,12 @@ def weather_form():
                 vlag = weather['main']['humidity']
                 text = weather['weather'][0]['description']
                 return render_template('weather.html', title=f'Погода в городе {town}', year_app='июль 2023',
-                                       town=town, icon=icon, temp=temp, vlag=vlag, text=text)
+                                       town=town, icon=icon, temp=temp, vlag=vlag, text=text,
+                                       message=message, b='/weather_form')
 
             else:
                 return redirect('/error404')
+
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)

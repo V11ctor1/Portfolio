@@ -2,12 +2,13 @@
 
 {% block content_works %}
 
-<div class="ds-work-content-sec">
+<div class="ds-work-content-sec" style="padding-top: 0">
     <div class="row justify-content-center">
         <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
-            <img src="https://openweathermap.org/img/wn/{{icon}}@2x.png">
-
-
+            {% if message %}
+            <h2>{{ message }}</h2>
+            {% endif %}
+            <img  src="https://openweathermap.org/img/wn/{{icon}}@2x.png">
             <ul>
                 <li> Температура в городе {{town}} сейчас: {{temp}} &deg C</li>
                 {% if vlag > 60 %}
@@ -17,11 +18,11 @@
                 {% else %}
                 <li> Оптимальная влажность: {{vlag}} %</li>
 
-            {% endif %}
-            <li> Описание: {{text}} </li>
+                {% endif %}
+                <li> Описание: {{text}}</li>
             </ul>
-<figure><img src="../static/images/work1.png"
-             alt="Здесь должна была быть картинка, но не нашлась"></figure>
+            <figure><img src="../static/images/work1.png"
+                         alt="Здесь должна была быть картинка, но не нашлась"></figure>
 
         </div>
     </div>
