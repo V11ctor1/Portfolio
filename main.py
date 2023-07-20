@@ -4,12 +4,14 @@ import requests
 from docxtpl import DocxTemplate
 
 app = Flask(__name__)
-posit = 'Python Developer'
+
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='Портфолио', posit=posit, about=about)
+    return render_template('index.html', title='Портфолио', posit=posit, about=about,
+                           skills_list_hard=skills_list_hard, skills_list_soft=skills_list_soft
+                           )
 
 
 @app.errorhandler(404)
@@ -67,8 +69,38 @@ if __name__ == '__main__':
     Суть бизнеса — это построение классных продуктов, за которые пользователи готовы платить.
     Суть жизни — это жизнь, которой можно гордиться, рядом с любимыми людьми, занимаясь любимым делом.
     '''
+    skills_list_hard = ['HTML', 'CSS', 'Bootstrap', 'Python (Flask)', 'SQL',
+                        'Github', 'BPMN', 'UML', 'UseCase', 'UserStory', 'English Upper-Intermediate']
+    skills_list_soft = ['Лидерство', 'Тайм-менеджмент', 'Видение картины в целом',
+                        'Коммуникация', 'Обучение персонала', 'Руки, ноги, голова']
+    skills_list = (skills_list_hard, skills_list_soft)
+    experience_list = [
+        {
+            'year': '2023 - Сейчас',
+            'officename': 'Сам себе хозяин',
+            'department': 'Backend developer',
+            'to_do': ['Изучение документации и стандартов написания кода', 'Работа с Api внешних сервисов',
+                      'Git коммиты', 'Jinja шаблонизатор', 'Ходила в СПА и пила смузи']
+
+        },
+        {
+            'year': '2010 - 2023',
+            'officename': 'Международная европейская компания',
+            'department': 'Team lead',
+            'to_do': ['Постановка целей, инициирование действий для их достижения и отслеживание результатов',
+                      'Анализ отчетов, KPI',
+                      'Реализация проектов компании', 'Составление графика и планирование',
+                      'Развитие профессиональных навыков команды (штат сотрудников от 100 и больше)',
+                      'Обеспечение кадрового резерва внутри команды, рекрутмент',
+                      'Проведение обратной связи для команды']
+
+        }
+
+    ]
     doc = DocxTemplate("static/doc/resume.docx")
-    context = {'position': posit, 'experience_list': "t", 'skills_list': "t", 'about': about}
+    context = {'position': posit, 'experience_list': experience_list,
+               'skills_list': skills_list,
+               'about': about}
     doc.render(context)
     doc.save("static/doc/resume-r.docx")
     app.run(host='127.0.0.1', port=5000, debug=True)

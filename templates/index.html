@@ -47,7 +47,8 @@
                 {{ line }}<br>
                 {% endfor%} </p>
             <div class="ds-button-sec text-center">
-                <a href="{{ url_for('static', filename='doc/resume-r.docx') }}" class="ds-button" download >Скачать резюме</a>
+                <a href="{{ url_for('static', filename='doc/resume-r.docx') }}" class="ds-button" download>Скачать
+                    резюме</a>
             </div>
         </section>
     </div>
@@ -61,29 +62,18 @@
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                 <h2 class="ds-heading">hard skills</h2>
                 <ul class="ds-skills-list">
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>Bootstrap</li>
-                    <li>Python (Flask)</li>
-                    <li>SQL</li>
-                    <li>Github</li>
-                    <li>BPMN</li>
-                    <li>UML</li>
-                    <li>UseCase</li>
-                    <li>UserStory</li>
-                    <li>English Upper-Intermediate</li>
+                    {%for item in skills_list_hard %}
+                    <li>{{ item }}</li>
+                    {% endfor%}
                 </ul>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                 <h2 class="ds-heading">soft skills</h2>
                 <ul class="ds-skills-list">
+                    {%for item in skills_list_soft %}
+                    <li>{{ item }}</li>
+                    {% endfor%}
 
-                    <li>Лидерство</li>
-                    <li>Тайм-менеджмент</li>
-                    <li>Видение картины в целом</li>
-                    <li>Коммуникация</li>
-                    <li>Обучение персонала</li>
-                    <li>Руки, ноги, голова</li>
                 </ul>
             </div>
         </div>
@@ -101,7 +91,6 @@
                     <span class="ds-year">2023 - Сейчас</span>
                     <h3 class="ds-officename">Сам себе хозяин</h3>
                     <span class="ds-department">Backend developer</span>
-                    <p>Обучение языку Python на практике</p>
                     <ul>
                         <li>Изучение документации и стандартов написания кода</li>
                         <li>Работа с Api внешних сервисов</li>
@@ -116,7 +105,6 @@
                     <span class="ds-year">2010 - 2023</span>
                     <h3 class="ds-officename">Международная европейская компания</h3>
                     <span class="ds-department">Team lead</span>
-                    <p>Работала</p>
                     <ul>
                         <li>Постановка целей, инициирование действий для их достижения и отслеживание результатов</li>
                         <li>Анализ отчетов, KPI</li>
