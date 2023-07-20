@@ -11,16 +11,16 @@ posit = 'Python Developer'
 def index():
     return render_template('index.html', title='Портфолио', posit=posit, about=about)
 
-#
-# @app.errorhandler(404)
-# def http_404_error(error):
-#     return redirect('/error404')
-#
-#
-# @app.route('/error404')
-# def well():  # колодец
-#     return render_template('well.html', title='Вот это поворот 404', year_app='Никогда', b='/index')
-#
+
+@app.errorhandler(404)
+def http_404_error(error):
+    return redirect('/error404')
+
+
+@app.route('/error404')
+def well():  # колодец
+    return render_template('well.html', title='Вот это поворот 404', year_app='Никогда', b='/index')
+
 
 @app.route('/works')
 def works():
